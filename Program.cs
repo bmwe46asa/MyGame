@@ -1,30 +1,39 @@
 ﻿using System;
-using System.Transactions;
 namespace Less
 {
  internal class Program
  {
     private static void Main(string[] args)
     {
+      int Health = 100;
+      int Score = 0;
+      bool isAlive = true;
       Console.WriteLine("Enter your name");
-      string playerName = Console.ReadLine();
-      Console.WriteLine("Welcom " + playerName);
-      Console.WriteLine("Enter your age");
-      string ageText = Console.ReadLine();  
+      string yourName = Console.ReadLine();
+      Console.WriteLine("Welcom " + yourName);
+      Console.WriteLine("Your age?");
+      string ageText = Console.ReadLine();
       bool isNumber = int.TryParse(ageText, out int age);
-      if (!isNumber)
+      if(!isNumber)
       {
-        Console.WriteLine("Invalid");
+        Console.WriteLine("Invalid age");
       }
-      else if (age < 1 || age > 100)
+      else if(age < 1 ||  age > 100)
       {
-        Console.WriteLine("false age");
+        Console.WriteLine("Age out of range");
       }
       else
       {
-        Console.WriteLine("O my Gad age");
+        Console.WriteLine("Age accepted");
+      }
+      if ((isNumber) && (age > 1 && age < 100))
+      {
+        Console.WriteLine(yourName);
+        Console.WriteLine(Health);
+        Console.WriteLine(Score);
+        Console.WriteLine(isAlive);
       }
 
-    }
  }
+}
 }

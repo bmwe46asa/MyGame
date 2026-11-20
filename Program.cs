@@ -26,13 +26,36 @@ namespace Less
       {
         Console.WriteLine("Age accepted");
       }
-      if ((isNumber) && (age > 1 && age < 100))
+      if ((isNumber) && (age >= 1 && age <= 100))
       {
         Console.WriteLine(yourName);
         Console.WriteLine(Health);
         Console.WriteLine(Score);
         Console.WriteLine(isAlive);
+        Console.WriteLine("your damage?");
+        string damage = Console.ReadLine();
+        bool daNumber = int.TryParse(damage, out int number);
+        if ((!daNumber) || number < 0)
+        {
+          Console.WriteLine("Invalid damage");
+        }
+        else
+        {
+          int result = Health - number;
+          if (result <= 0)
+          {
+            Health = 0;
+            isAlive = false;
+          }
+          else
+          {
+            Health = result;
+          }
+          Console.WriteLine(Health);
+          Console.WriteLine(isAlive);
+        }
       }
+
 
  }
 }
